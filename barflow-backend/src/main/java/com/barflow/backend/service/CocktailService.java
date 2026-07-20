@@ -1,6 +1,7 @@
 package com.barflow.backend.service;
 
 import com.barflow.backend.entity.Cocktail;
+import com.barflow.backend.exception.CocktailNotFoundException;
 import com.barflow.backend.repository.CocktailRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class CocktailService {
         return cocktailRepository.findAll();
     }
     public Cocktail getCocktailById(long id) {
-       return cocktailRepository.findById(id).orElseThrow(() -> new RuntimeException("Cocktail not found"));
+       return cocktailRepository.findById(id).orElseThrow(() -> new CocktailNotFoundException("Cocktail not found"));
     }
     public Cocktail addCocktail(Cocktail cocktail) {
         return cocktailRepository.save(cocktail);

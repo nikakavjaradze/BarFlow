@@ -10,7 +10,7 @@ public class Cocktail {
     private String name;
     private String description;
     private String instructions;
-    private String imagineUrl;
+    private String imageUrl;
 
     public Cocktail() {}
 
@@ -18,7 +18,7 @@ public Cocktail(String name, String description,String instructions, String imag
     this.name = name;
     this.description = description;
     this.instructions = instructions;
-    this.imagineUrl = imageUrl;
+    this.imageUrl = imageUrl;
 }
 public Long getId() {
     return id;
@@ -33,7 +33,7 @@ public String getInstructions() {
     return instructions;
 }
 public String getImagineUrl() {
-    return imagineUrl;
+    return imageUrl;
 }
 public void setName(String name) {
         this.name = name;
@@ -45,6 +45,6 @@ public void setInstructions(String instructions) {
         this.instructions = instructions;
 }
 public void setImagineUrl(String imagineUrl) {
-        this.imagineUrl = imagineUrl;
+        this.imageUrl = imagineUrl;
 }
 }
