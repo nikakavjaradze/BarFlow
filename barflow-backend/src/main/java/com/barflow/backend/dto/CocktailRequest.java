@@ -3,15 +3,15 @@ package com.barflow.backend.dto;
 public class CocktailRequest {
     private String name;
     private String description;
-    private String instruction;
+    private String instructions;
     private String imageUrl;
 
     public CocktailRequest() {}
 
-    public CocktailRequest(String name, String description, String instruction, String imageUrl) {
+    public CocktailRequest(String name, String description, String instructions, String imageUrl) {
         this.name = name;
         this.description = description;
-        this.instruction = instruction;
+        this.instructions = instructions;
         this.imageUrl = imageUrl;
     }
     public String getName() {
@@ -20,8 +20,8 @@ public class CocktailRequest {
     public String getDescription() {
         return description;
     }
-    public String getInstruction() {
-        return instruction;
+    public String getInstructions() {
+        return instructions;
     }
     public String getImageUrl() {
         return imageUrl;
@@ -29,8 +29,8 @@ public class CocktailRequest {
     public void setName(String name) {
         this.name = name;
     }
-    public void setInstruction(String instruction) {
-        this.instruction = instruction;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
     public void setDescription(String description) {
         this.description = description;

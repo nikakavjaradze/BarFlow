@@ -4,16 +4,16 @@ public class CocktailResponse {
     private Long id;
     private String name;
     private String description;
-    private String instruction;
+    private String instructions;
     private String imageUrl;
 
     public CocktailResponse() {}
 
-    public CocktailResponse(long id, String name, String description, String instruction, String imageUrl) {
+    public CocktailResponse(long id, String name, String description, String instructions, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.instruction = instruction;
+        this.instructions = instructions;
         this.imageUrl = imageUrl;
     }
     public long getId() {
@@ -25,8 +25,8 @@ public class CocktailResponse {
     public String getDescription() {
         return description;
     }
-    public String getInstruction() {
-        return instruction;
+    public String getInstructions() {
+        return instructions;
     }
     public String getImageUrl() {
         return imageUrl;
@@ -37,8 +37,8 @@ public class CocktailResponse {
     public void setName(String name) {
         this.name = name;
     }
-    public void setInstruction(String instruction) {
-        this.instruction = instruction;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
     public void setDescription(String description) {
         this.description = description;
