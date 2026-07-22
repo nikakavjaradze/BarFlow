@@ -1,8 +1,16 @@
 package com.barflow.backend.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class CocktailRequest {
+    @NotBlank(message = "Name can not be blank")
+    @Size(min = 2, max = 50, message = "Name must contain 2 to 50 characters")
     private String name;
+    @Size(max = 200, message = "Description must contain maximum 200 characters")
     private String description;
+    @NotBlank(message = "Instructions can not be blank")
+    @Size(min = 10, max = 200, message = "Instructions must contain 10 to 200 characters")
     private String instructions;
     private String imageUrl;
 

@@ -4,6 +4,7 @@ import com.barflow.backend.dto.CocktailRequest;
 import com.barflow.backend.dto.CocktailResponse;
 import com.barflow.backend.mapper.CocktailMapper;
 import com.barflow.backend.service.CocktailService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,15 +28,15 @@ public class CocktailController {
         return cocktailService.getCocktailById(id);
     }
     @PostMapping
-    public CocktailResponse addCocktail (@RequestBody CocktailRequest request) {
+    public CocktailResponse addCocktail (@Valid @RequestBody CocktailRequest request) {
         return cocktailService.addCocktail(request);
     }
     @PutMapping("/{id}")
-    public CocktailResponse updateCocktail (@PathVariable long id, @RequestBody CocktailRequest request) {
+    public CocktailResponse updateCocktail (@PathVariable long id, @Valid @RequestBody CocktailRequest request) {
         return cocktailService.updateCocktail(id, request);
     }
     @DeleteMapping("/{id}")
-    public void deleteCocktail(@PathVariable long id) {
+    public void deleteCocktail(@Valid @PathVariable long id) {
         cocktailService.deleteCocktail(id);
     }
 }
