@@ -21,13 +21,7 @@ public class CocktailService {
         this.mapper = mapper;
     }
     public List<CocktailResponse> getAllCocktails() {
-        List<Cocktail> cocktail = cocktailRepository.findAll();
-        List<CocktailResponse> responses = new ArrayList<>();
-        for (Cocktail cocktail1 : cocktail) {
-            CocktailResponse cocktail2 = mapper.toResponse(cocktail1);
-            responses.add(cocktail2);
-        }
-        return responses;
+       return mapToResponseList(cocktailRepository.findAll());
     }
     public CocktailResponse getCocktailById(long id) {
        Cocktail cocktail = cocktailRepository.findById(id).orElseThrow(() -> new CocktailNotFoundException("Cocktail not found"));
@@ -50,5 +44,16 @@ public class CocktailService {
     public void deleteCocktail(long id) {
        Cocktail cocktail = cocktailRepository.findById(id).orElseThrow(() -> new CocktailNotFoundException("Cocktail not found"));
        cocktailRepository.delete(cocktail);
+    }
+    public List<CocktailResponse> searchCocktail(String name) {
+      return mapToResponseList(cocktailRepository.findByNameContainingIgnoreCase(name));
+    }
+    private List<CocktailResponse> mapToResponseList(List<Cocktail> cocktails) {
+        List<CocktailResponse> responses = new ArrayList<>();
+        for(Cocktail cocktail : cocktails) {
+            CocktailResponse response = mapper.toResponse(cocktail);
+            responses.add(response);
+        }
+        return responses;
     }
 }
